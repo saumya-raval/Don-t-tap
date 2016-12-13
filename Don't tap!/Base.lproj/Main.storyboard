@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Don_t_tap_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,67 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="427" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-Ss-Cxz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHC-yd-M3v" userLabel="happy">
+                                <rect key="frame" x="69" y="63" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="cTO-UT-1nE"/>
+                                    <constraint firstAttribute="width" constant="150" id="rxu-ef-Rs2"/>
+                                </constraints>
+                                <state key="normal" image="happy"/>
+                                <connections>
+                                    <action selector="happyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xt3-w6-bZI"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofj-hE-hMQ" userLabel="ghost">
+                                <rect key="frame" x="53" y="364" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="geg-C6-2c1"/>
+                                    <constraint firstAttribute="height" constant="150" id="wor-Xm-pBz"/>
+                                </constraints>
+                                <state key="normal" image="ghost_emo"/>
+                                <connections>
+                                    <action selector="ghostTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VYG-xD-c1Q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLY-IM-mjI">
+                                <rect key="frame" x="429" y="28" width="151" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="74S-ls-SKf"/>
+                                    <constraint firstAttribute="height" constant="41" id="o4l-jl-Ua0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tXh-Ss-Cxz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AI3-LQ-1AQ"/>
+                            <constraint firstAttribute="trailing" secondItem="tXh-Ss-Cxz" secondAttribute="trailing" id="DSW-9w-qRX"/>
+                            <constraint firstAttribute="trailing" secondItem="rLY-IM-mjI" secondAttribute="trailing" constant="20" id="bDX-km-ySW"/>
+                            <constraint firstItem="tXh-Ss-Cxz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fto-hg-Sig"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tXh-Ss-Cxz" secondAttribute="bottom" id="mam-pK-tSC"/>
+                            <constraint firstItem="rLY-IM-mjI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="pRe-yP-3eC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ghostBtn" destination="ofj-hE-hMQ" id="iO6-93-uYC"/>
+                        <outlet property="happyBtn" destination="iHC-yd-M3v" id="QeB-bV-Wwk"/>
+                        <outlet property="scoreLbl" destination="rLY-IM-mjI" id="och-55-pTb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="337"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="427" width="1200" height="1200"/>
+        <image name="ghost_emo" width="1000" height="1000"/>
+        <image name="happy" width="570" height="573"/>
+    </resources>
 </document>
